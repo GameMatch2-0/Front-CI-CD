@@ -1,0 +1,37 @@
+.section-planos {
+    padding-top: 10vh;
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 35.2vh;
+    flex-direction: row;
+    padding: 150px 0 100px 0;
+    justify-content: space-around;
+}
+
+.section-planos .planos-div-direita {
+    width: 50%
+}
+
+.section-planos .planos-info {
+    color: black;
+    font-size: 40px;
+}
+
+.section-planos p {
+    color: black;
+}
+
+.section-planos img {
+    width: 300px;
+}
+
+.section-planos button {
+    background-color: blue;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    width: 100px;
+    height: 40px;
+
+}

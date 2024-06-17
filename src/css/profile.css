@@ -1,0 +1,245 @@
+p {
+    font-family: 'lalezar';
+}
+
+.user-profile {
+    display: flex;
+}
+
+.user-menu {
+    background-color: #181e29;
+    width: 30%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-header {
+    background-image: linear-gradient(120deg, #2032a7, #4150B7);
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+}
+
+.foto-usuario {
+    cursor: pointer;
+    width: 65px;
+    height: 65px;
+    margin-left: 5%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.usernames {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 60%;
+}
+
+.usernames p {
+    color: #fff;
+    padding-left: 10px;
+}
+
+.nickname {
+    font-size: 24px;
+}
+
+.real-name {
+    font-size: 16px;
+}
+
+.avaliation {
+    display: flex;
+    align-items: flex-start;
+    height: 60%;
+    margin-right: 5%;
+}
+
+.rate-icon {
+    height: 12px;
+    padding-top: 10px;
+}
+
+.rate {
+    font-size: 24px;
+    padding-left: 5px;
+    color: #fff;
+}
+
+.menu-body {
+    width: 100%;
+    height: 100%;
+}
+
+.menu-nav {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 10%;
+    margin-left:5%;
+}
+
+.menu-nav p {
+    color: #fff;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+.slide-bar-area {
+    width: 90%;
+    height: 5px;
+    margin-left: 5%;
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+.slide-bar1 {
+    width: 100%;
+}
+
+.slide-bar2 {
+    width: 85px;
+}
+
+.slide-bar3 {
+    width: 50px;
+}
+
+.menu-content {
+    width: 90%;
+    height: 90%;
+    margin-left: 5%;
+}
+
+.user-information {
+    max-height: 60vh;
+    min-height: 60vh;
+    min-width: 50vh;
+    margin: 5% 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.name-edit {
+    display: flex;
+    justify-content: space-between;
+    margin: 1% 0 1%;
+}
+
+.name-edit p{
+    color: #fff;
+    font-size: 24px;
+}
+
+.name-edit img {
+    height: 24px;
+    cursor: pointer;
+}
+
+.bio textarea {
+    background-color: #181e29;
+    color: #fff;
+    width: 99%;
+    height: 15vh;
+    border-radius: 10px;
+    border: solid 2px #fff;
+}
+
+.profile-color {
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-color .color-option {
+    width: 15%;
+    height: 8vh;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.color-option:active {
+    transform: scale(.95);
+}
+
+.color-option.blue {
+    background-color: #2032a7;
+}
+
+.color-option.red {
+    background-color: #bb1818;
+}
+
+.color-option.yellow {
+    background-color: #ec9d09;
+}
+
+.color-option.green {
+    background-color: #0d9c14;
+}
+
+.color-option.black {
+    background-color: #000000;
+}
+
+.friend-list {
+    min-height: 45vh;
+    max-height: 45vh;
+    margin: 5% 0;
+    overflow-y: auto;
+    border: solid 2px #fff;
+    border-radius: 10px;
+    padding: 5px 0 0 5px;
+}
+
+.chat-list {
+    min-height: 45vh;
+    max-height: 45vh;
+    margin: 5% 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border: solid 2px #fff;
+    border-radius: 10px;
+    padding: 5px 0 0 5px;
+}
+
+.mark-name {
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.match-area {
+    background-color: #98a1db;
+    width: 70%;
+    height: 100vh;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.rolar-fav {
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-bottom: 30px;
+    gap: 10px;
+    width: 100%;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}

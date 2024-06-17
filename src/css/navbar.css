@@ -1,0 +1,75 @@
+.nav-bar {
+    width: 100vw;
+    height: 10vh;
+    background-color: #2A3EB9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+}
+
+.nav-esquerda h2 {
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    margin-left: 5vw;
+}
+
+.direita {
+    margin-right: 5vw;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    list-style: none;
+    color: white;
+}
+
+nav ul li {
+    cursor: pointer;
+    position: relative;
+    font-size: 24px;
+}
+
+nav ul li::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 100%;
+    border-bottom: 2px solid white;
+    transition: width 0.3s;
+    position: absolute;
+    top: 0;
+}
+
+nav ul li:hover::after {
+    width: 100%;
+}
+
+nav .direita,
+nav .esquerda {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50vw;
+}
+
+nav .direita .btn-entrar {
+    background-color: white;
+    color: blue;
+    border: none;
+    width: 5.31vw;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    /* font-size: 1.2em; */
+    font-size: 1.4vw;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+nav .direita .btn-entrar:hover {
+    background-color: #f2f2f2;
+}

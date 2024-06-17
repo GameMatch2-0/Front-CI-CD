@@ -1,0 +1,168 @@
+.match-menu {
+    width: 55%;
+    height: 85%;
+    margin: 5% 25%;
+    display: flex;
+}
+
+.match-info {
+    background-color: #181e29;
+    width: 90%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.album {
+    width: 100%;
+    background-color: #212731;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.album img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.profile-info {
+    background-color: #181e29;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    overflow-y: auto;
+    max-height: 280px;
+}
+
+.profile-info span {
+    color: #fff;
+}
+
+.top-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.top-info span {
+    color: #fff;
+    font-size: 32px;
+}
+
+.top-info .nick {
+    margin-right: 20px;
+}
+
+.nome-real {
+    margin-bottom: 20px;
+}
+
+.nome-real .nome {
+    margin-right: 5px;
+}
+
+.biografia {
+    margin-bottom: 20px;
+}
+
+.hobbies-section {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.hobbie {
+    background-color: #4150B7;
+    border: solid 1px #fff;
+    border-radius: 20px;
+    width: 30%;
+    text-align: center;
+    margin-bottom: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-right: 10px;
+}
+
+.jogos-section {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.jogo {
+    background-color: #4150B7;
+    border: solid 1px #fff;
+    border-radius: 20px;
+    width: 30%;
+    text-align: center;
+    margin-bottom: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-right: 10px;
+}
+
+.generos-section {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.genero {
+    background-color: #4150B7;
+    border: solid 1px #fff;
+    border-radius: 20px;
+    width: 30%;
+    text-align: center;
+    margin-bottom: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-right: 10px;
+}
+
+.consoles-section {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.console {
+    background-color: #4150B7;
+    border: solid 1px #fff;
+    border-radius: 20px;
+    width: 30%;
+    text-align: center;
+    margin-bottom: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-right: 10px;
+}
+
+.match-options {
+    display: flex;
+    flex-direction: column;
+}
+
+.match-options img {
+    background-color: #181e29;
+    border-radius: 50%;
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.match-options img:active {
+    background-color: #4150B7;
+    transform: scale(1.1);
+}
+
+.foto-perfil {
+    width: 40px;
+    border-top-left-radius: 20px;
+}
+
+.carousel {
+    overflow-y: hidden;
+}
