@@ -2,6 +2,7 @@ import '../css/profile.css'
 import foto from '../assets/foto.png'
 import star from '../assets/star.png'
 import edit from '../assets/edit.png'
+import att_icon from '../assets/att_icon.png'
 import coelho from '../assets/logo-coelho.jpg'
 import Friend from '../components/Friend.jsx';
 import Chat from '../components/Chat.jsx';
@@ -16,7 +17,7 @@ import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router';
 import axios from 'axios';
 import { app, auth, firestore } from "../services/firebase";
-import { collection, doc, getDoc, getDocs, query, where} from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, query, where, updateDoc} from "firebase/firestore";
 
 export default function Profile() {
     const navigate = useNavigate();
@@ -29,6 +30,7 @@ export default function Profile() {
 
     const [nomeCompleto, setNomeCompleto] = useState('');
     const [username, setUsername] = useState('');
+    const [biografia, setBiografia] = useState('');
     const [favGameCard, setFavGameCard] = useState([]);
     const [favInteresseCard, setFavInteresseCard] = useState([]);
     const [favPlataformaCard, setFavPlataformaCard] = useState([]);
@@ -60,7 +62,7 @@ export default function Profile() {
     
                         if (docData.exists()) {
                             const data = docData.data();
-                            const { nome, sobrenome, username, jogos_favoritos, generos_favoritos, consoles, interesses, foto_perfil } = data;
+                            const { nome, sobrenome, username, biografia, jogos_favoritos, generos_favoritos, consoles, interesses, foto_perfil } = data;
                         
                             const favGameCardData = jogos_favoritos ? jogos_favoritos.map(jogo => ({
                                 name: jogo,
@@ -89,6 +91,7 @@ export default function Profile() {
                             setUsername(username);
                             setNomeCompleto(nome + " " + sobrenome);
                             setFotoPerfil(foto_perfil);
+                            setBiografia(biografia);
                         } else {
                             console.log("Nenhum documento encontrado!");
                         }
@@ -187,6 +190,78 @@ export default function Profile() {
         setIsJogosModalOpen(false);
     };
 
+    const attJogos = async () => {
+        const jogosAtualizados = JSON.parse(localStorage.getItem('jogosFavoritos'));
+
+        try {
+            const userID = sessionStorage.getItem('userIDFirebase');
+
+            if (userID) {
+                const docRef = doc(firestore, "users", localStorage.getItem('docId'));
+
+                await updateDoc(docRef, { jogos_favoritos: jogosAtualizados });
+
+                console.log('Documento alterado com sucesso no Firestore:');
+            }
+        } catch (error) {
+            console.error('Erro ao alterar os jogos:', error);
+        }
+    }
+
+    const attInteresses = async () => {
+        const interessesAtualizados = JSON.parse(localStorage.getItem('interessesFavoritos'));
+
+        try {
+            const userID = sessionStorage.getItem('userIDFirebase');
+
+            if (userID) {
+                const docRef = doc(firestore, "users", localStorage.getItem('docId'));
+
+                await updateDoc(docRef, { generos_favoritos: interessesAtualizados });
+
+                console.log('Documento alterado com sucesso no Firestore:');
+            }
+        } catch (error) {
+            console.error('Erro ao alterar os jogos:', error);
+        }
+    }
+
+    const attPlataformas = async () => {
+        const plataformasAtualizadas = JSON.parse(localStorage.getItem('plataformasFavoritas'));
+
+        try {
+            const userID = sessionStorage.getItem('userIDFirebase');
+
+            if (userID) {
+                const docRef = doc(firestore, "users", localStorage.getItem('docId'));
+
+                await updateDoc(docRef, { consoles: plataformasAtualizadas });
+
+                console.log('Documento alterado com sucesso no Firestore:');
+            }
+        } catch (error) {
+            console.error('Erro ao alterar os jogos:', error);
+        }
+    }
+
+    const attHobbies = async () => {
+        const hobbiesAtualizados = JSON.parse(localStorage.getItem('hobbiesFavoritos'));
+
+        try {
+            const userID = sessionStorage.getItem('userIDFirebase');
+
+            if (userID) {
+                const docRef = doc(firestore, "users", localStorage.getItem('docId'));
+
+                await updateDoc(docRef, { interesses: hobbiesAtualizados });
+
+                console.log('Documento alterado com sucesso no Firestore:');
+            }
+        } catch (error) {
+            console.error('Erro ao alterar os jogos:', error);
+        }
+    }
+
     return (
         <>
             <section className='user-profile'>
@@ -245,7 +320,7 @@ export default function Profile() {
                                             <img src={edit} alt="icone de edição" />
                                         </div>
 
-                                        <textarea cols="30" rows="10"></textarea>
+                                        <textarea cols="30" rows="10" placeholder={biografia}></textarea>
                                     </div>
 
                                     <InteressesModal isOpen={isInteressesModalOpen} onClose={closeInteressesModal} />
@@ -257,7 +332,10 @@ export default function Profile() {
                                         <div className="name-edit">
                                             <p>Jogos favoritos:</p>
 
-                                            <img src={edit} alt="icone de edição" onClick={openJogosModal}/>
+                                            <div className="icones">
+                                                <img src={att_icon} alt="icone de edição" onClick={attJogos}/>
+                                                <img src={edit} alt="icone de edição" onClick={openJogosModal}/>
+                                            </div>
                                         </div>
 
                                         <div className="rolar-fav">
@@ -271,7 +349,10 @@ export default function Profile() {
                                         <div className="name-edit">
                                             <p>Gêneros favoritos:</p>
 
-                                            <img src={edit} alt="icone de edição" onClick={openInteressesModal}/>
+                                            <div className="icones">
+                                                <img src={att_icon} alt="icone de edição" onClick={attInteresses}/>
+                                                <img src={edit} alt="icone de edição" onClick={openInteressesModal}/>
+                                            </div>
                                         </div>
 
                                         <div className="rolar-fav">
@@ -285,7 +366,10 @@ export default function Profile() {
                                         <div className="name-edit">
                                             <p>Meus consoles:</p>
 
-                                            <img src={edit} alt="icone de edição" onClick={openPlataformasModal}/>
+                                            <div className="icones">
+                                                <img src={att_icon} alt="icone de edição" onClick={attPlataformas}/>
+                                                <img src={edit} alt="icone de edição" onClick={openPlataformasModal}/>
+                                            </div>
                                         </div>
 
                                         <div className="rolar-fav">
@@ -299,7 +383,10 @@ export default function Profile() {
                                         <div className="name-edit">
                                             <p>Gostos pessoais:</p>
 
-                                            <img src={edit} alt="icone de edição" onClick={openHobbiesModal}/>
+                                            <div className="icones">
+                                                <img src={att_icon} alt="icone de edição" onClick={attHobbies}/>
+                                                <img src={edit} alt="icone de edição" onClick={openHobbiesModal}/>
+                                            </div>
                                         </div>
 
                                         <div className="rolar-fav">

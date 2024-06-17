@@ -142,6 +142,10 @@ p {
     cursor: pointer;
 }
 
+.icones img{
+    margin-left: 8px;
+}
+
 .bio textarea {
     background-color: #181e29;
     color: #fff;
@@ -149,6 +153,13 @@ p {
     height: 15vh;
     border-radius: 10px;
     border: solid 2px #fff;
+    font-size: 18px;
+}
+
+.bio textarea::placeholder {
+    color: #fff;
+    font-size: 18px;
+    padding: 10px;
 }
 
 .profile-color {
